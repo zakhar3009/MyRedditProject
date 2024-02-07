@@ -9,9 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var shareButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        shareButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        shareButton.titleLabel?.minimumScaleFactor = 0.5
+
     }
 
 
