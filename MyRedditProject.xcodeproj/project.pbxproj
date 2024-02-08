@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E38C2D32B73F89C00951752 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E38C2D22B73F89C00951752 /* SDWebImage */; };
+		7E38C2D52B73F89C00951752 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E38C2D42B73F89C00951752 /* SDWebImageMapKit */; };
+		7E9F27412B74DBEB00632854 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F27402B74DBEB00632854 /* Networking.swift */; };
 		7EE47DF12B73E94200583612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF02B73E94200583612 /* AppDelegate.swift */; };
 		7EE47DF32B73E94200583612 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF22B73E94200583612 /* SceneDelegate.swift */; };
-		7EE47DF52B73E94200583612 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF42B73E94200583612 /* ViewController.swift */; };
+		7EE47DF52B73E94200583612 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF42B73E94200583612 /* PostViewController.swift */; };
 		7EE47DF82B73E94200583612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE47DF62B73E94200583612 /* Main.storyboard */; };
 		7EE47DFA2B73E94300583612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE47DF92B73E94300583612 /* Assets.xcassets */; };
 		7EE47DFD2B73E94300583612 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE47DFB2B73E94300583612 /* LaunchScreen.storyboard */; };
@@ -17,10 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E9F27402B74DBEB00632854 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		7EE47DED2B73E94200583612 /* MyRedditProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRedditProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE47DF02B73E94200583612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EE47DF22B73E94200583612 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7EE47DF42B73E94200583612 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7EE47DF42B73E94200583612 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7EE47DF72B73E94200583612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EE47DF92B73E94300583612 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EE47DFC2B73E94300583612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,12 +37,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E38C2D52B73F89C00951752 /* SDWebImageMapKit in Frameworks */,
+				7E38C2D32B73F89C00951752 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E9F273F2B74DBCA00632854 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F27402B74DBEB00632854 /* Networking.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7EE47DE42B73E94200583612 = {
 			isa = PBXGroup;
 			children = (
@@ -61,7 +75,8 @@
 			children = (
 				7EE47DF02B73E94200583612 /* AppDelegate.swift */,
 				7EE47DF22B73E94200583612 /* SceneDelegate.swift */,
-				7EE47DF42B73E94200583612 /* ViewController.swift */,
+				7EE47DF42B73E94200583612 /* PostViewController.swift */,
+				7E9F273F2B74DBCA00632854 /* Model */,
 				7EE47DF62B73E94200583612 /* Main.storyboard */,
 				7EE47DF92B73E94300583612 /* Assets.xcassets */,
 				7EE47DFB2B73E94300583612 /* LaunchScreen.storyboard */,
@@ -86,6 +101,10 @@
 			dependencies = (
 			);
 			name = MyRedditProject;
+			packageProductDependencies = (
+				7E38C2D22B73F89C00951752 /* SDWebImage */,
+				7E38C2D42B73F89C00951752 /* SDWebImageMapKit */,
+			);
 			productName = MyRedditProject;
 			productReference = 7EE47DED2B73E94200583612 /* MyRedditProject.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +133,9 @@
 				Base,
 			);
 			mainGroup = 7EE47DE42B73E94200583612;
+			packageReferences = (
+				7E38C2D12B73F89C00951752 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 7EE47DEE2B73E94200583612 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,9 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE47DF52B73E94200583612 /* ViewController.swift in Sources */,
+				7EE47DF52B73E94200583612 /* PostViewController.swift in Sources */,
 				7EE47DF12B73E94200583612 /* AppDelegate.swift in Sources */,
 				7EE47DF32B73E94200583612 /* SceneDelegate.swift in Sources */,
+				7E9F27412B74DBEB00632854 /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +398,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7E38C2D12B73F89C00951752 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E38C2D22B73F89C00951752 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E38C2D12B73F89C00951752 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		7E38C2D42B73F89C00951752 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E38C2D12B73F89C00951752 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7EE47DE52B73E94200583612 /* Project object */;
 }
