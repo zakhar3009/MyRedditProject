@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E288A1E2B7A4AC100C88119 /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E288A1D2B7A4AC100C88119 /* PostInfo.swift */; };
 		7E38C2D32B73F89C00951752 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E38C2D22B73F89C00951752 /* SDWebImage */; };
 		7E38C2D52B73F89C00951752 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E38C2D42B73F89C00951752 /* SDWebImageMapKit */; };
 		7E9F27412B74DBEB00632854 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F27402B74DBEB00632854 /* Networking.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E288A1D2B7A4AC100C88119 /* PostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
 		7E9F27402B74DBEB00632854 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		7EE47DED2B73E94200583612 /* MyRedditProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRedditProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE47DF02B73E94200583612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,14 +47,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7E9F273F2B74DBCA00632854 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7E9F27402B74DBEB00632854 /* Networking.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		7EE47DE42B73E94200583612 = {
 			isa = PBXGroup;
 			children = (
@@ -76,7 +70,8 @@
 				7EE47DF02B73E94200583612 /* AppDelegate.swift */,
 				7EE47DF22B73E94200583612 /* SceneDelegate.swift */,
 				7EE47DF42B73E94200583612 /* PostViewController.swift */,
-				7E9F273F2B74DBCA00632854 /* Model */,
+				7E9F27402B74DBEB00632854 /* Networking.swift */,
+				7E288A1D2B7A4AC100C88119 /* PostInfo.swift */,
 				7EE47DF62B73E94200583612 /* Main.storyboard */,
 				7EE47DF92B73E94300583612 /* Assets.xcassets */,
 				7EE47DFB2B73E94300583612 /* LaunchScreen.storyboard */,
@@ -164,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E288A1E2B7A4AC100C88119 /* PostInfo.swift in Sources */,
 				7EE47DF52B73E94200583612 /* PostViewController.swift in Sources */,
 				7EE47DF12B73E94200583612 /* AppDelegate.swift in Sources */,
 				7EE47DF32B73E94200583612 /* SceneDelegate.swift in Sources */,
@@ -327,6 +323,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,6 +356,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

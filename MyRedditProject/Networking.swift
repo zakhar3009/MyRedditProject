@@ -8,7 +8,7 @@
 import Foundation
 
 
-public class NetworkingBrain{
+public class NetworkingManager{
     
     func createUrl(subreddit : String, limit : Int) -> URL?{
         guard let startPath = URL(string: "https://www.reddit.com/r/\(subreddit)/top.json?") else {return nil}
@@ -24,8 +24,7 @@ public class NetworkingBrain{
             throw PostError.invalidResponse
         }
         do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(Response.self, from: data).data.children[0].data
+            return try JSONDecoder().decode(Response.self, from: data).data.children[0].data
         } catch {
             throw PostError.invalidData
         }
@@ -48,39 +47,7 @@ struct PostChildren : Codable{
     let data : PostInfo
 }
 
-class PostInfo : Codable{
-    let authorFullName : String
-    let domain : String
-    let title : String
-    let ups : Int
-    let downs : Int
-    let numComments : Int
-    let createdUtc : Double
-    let preview : Preview
-    var isSaved = true
-    
-    var timePassed : String {
-        let currentUTC = Double(Date().timeIntervalSince1970)
-        if (currentUTC - createdUtc)/60 < 1 { return "\(currentUTC - createdUtc)s" }
-        else if (currentUTC - createdUtc)/3600 < 1 { return "\(Int((currentUTC - createdUtc)/60))m" }
-        else if (currentUTC - createdUtc)/86400 < 1 { return "\(Int((currentUTC - createdUtc)/3600))h" }
-        else if (currentUTC - createdUtc)/(86400 * 365) < 1 { return "\(Int((currentUTC - createdUtc)/86400))d" }
-        else { return "\(Int((currentUTC - createdUtc)/(86400 * 365)))y" }
-    }
-    
-    enum CodingKeys : String, CodingKey{
-        case authorFullName = "author_fullname"
-        case domain
-        case title
-        case ups
-        case createdUtc = "created_utc"
-        case downs
-        case preview
-        case numComments = "num_comments"
-    }
-    
 
-}
 
 struct Preview : Codable{
     let enabled : Bool

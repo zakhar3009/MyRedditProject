@@ -10,7 +10,7 @@ import SDWebImage
 
 class PostViewController: UIViewController {
     
-    let networkingBrain = NetworkingBrain()
+    let networkingBrain = NetworkingManager()
     var currenPost : PostInfo?
    
     @IBAction func bookmarkPressed(_ sender: UIButton) {
@@ -46,7 +46,7 @@ class PostViewController: UIViewController {
     
     
     func showPost() async {
-        let networkingBrain = NetworkingBrain()
+        let networkingBrain = NetworkingManager()
         do {
             currenPost = try await networkingBrain.getPost()
             userInfo.text = "\(currenPost!.authorFullName) • \(currenPost!.timePassed) • \(currenPost!.domain)"
@@ -54,6 +54,7 @@ class PostViewController: UIViewController {
             ratingLabel.text = "\(currenPost!.ups + currenPost!.downs)"
             commentsLabel.text = "\(currenPost!.numComments)"
             let imageUrl = currenPost!.preview.images[0].source.url.replacingOccurrences(of: "&amp;", with: "&")
+            print(imageUrl)
             imageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: nil, options: .scaleDownLargeImages)
         } catch PostError.invalidURL {
             print("Invalid url")
