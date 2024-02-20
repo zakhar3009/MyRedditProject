@@ -3,4 +3,70 @@
    uuid = "20F795DD-A578-4410-A4AA-8248EBC25192"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D00045F3-2BAB-4380-8AB8-DA3B159D04C7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditProject/PostView/PostTableCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "configure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D00045F3-2BAB-4380-8AB8-DA3B159D04C7 - b3ee7e13b85d559c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostTableCell.configure() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/PostView/PostTableCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "D00045F3-2BAB-4380-8AB8-DA3B159D04C7 - b3ee7e13b85d559c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostTableCell.configure() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/PostView/PostTableCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC5A6929-AF54-46A9-A868-D1E7BFFDE120"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditProject/PostFetcher.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "PostFetcher"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

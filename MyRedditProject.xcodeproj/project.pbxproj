@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		7E288A1E2B7A4AC100C88119 /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E288A1D2B7A4AC100C88119 /* PostInfo.swift */; };
+		7E2E2F422B7E31C00068425B /* PostFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E2F412B7E31C00068425B /* PostFetcher.swift */; };
 		7E38C2D32B73F89C00951752 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E38C2D22B73F89C00951752 /* SDWebImage */; };
 		7E38C2D52B73F89C00951752 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E38C2D42B73F89C00951752 /* SDWebImageMapKit */; };
+		7E65383A2B8363E7005DD8F7 /* PostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6538392B8363E7005DD8F7 /* PostDetails.swift */; };
+		7E65383E2B83676F005DD8F7 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E65383D2B83676F005DD8F7 /* PostView.xib */; };
+		7E6538402B83685E005DD8F7 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E65383F2B83685E005DD8F7 /* PostView.swift */; };
+		7E68DB3F2B7E6B0900BA9C4F /* PostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E68DB3E2B7E6B0900BA9C4F /* PostTableCell.swift */; };
 		7E9F27412B74DBEB00632854 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F27402B74DBEB00632854 /* Networking.swift */; };
 		7EE47DF12B73E94200583612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF02B73E94200583612 /* AppDelegate.swift */; };
 		7EE47DF32B73E94200583612 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF22B73E94200583612 /* SceneDelegate.swift */; };
-		7EE47DF52B73E94200583612 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF42B73E94200583612 /* PostViewController.swift */; };
+		7EE47DF52B73E94200583612 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE47DF42B73E94200583612 /* PostListViewController.swift */; };
 		7EE47DF82B73E94200583612 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE47DF62B73E94200583612 /* Main.storyboard */; };
 		7EE47DFA2B73E94300583612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE47DF92B73E94300583612 /* Assets.xcassets */; };
 		7EE47DFD2B73E94300583612 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE47DFB2B73E94300583612 /* LaunchScreen.storyboard */; };
@@ -22,11 +27,16 @@
 
 /* Begin PBXFileReference section */
 		7E288A1D2B7A4AC100C88119 /* PostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
+		7E2E2F412B7E31C00068425B /* PostFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFetcher.swift; sourceTree = "<group>"; };
+		7E6538392B8363E7005DD8F7 /* PostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetails.swift; sourceTree = "<group>"; };
+		7E65383D2B83676F005DD8F7 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		7E65383F2B83685E005DD8F7 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		7E68DB3E2B7E6B0900BA9C4F /* PostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableCell.swift; sourceTree = "<group>"; };
 		7E9F27402B74DBEB00632854 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		7EE47DED2B73E94200583612 /* MyRedditProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRedditProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE47DF02B73E94200583612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EE47DF22B73E94200583612 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7EE47DF42B73E94200583612 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		7EE47DF42B73E94200583612 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		7EE47DF72B73E94200583612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EE47DF92B73E94300583612 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EE47DFC2B73E94300583612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E6538412B836B12005DD8F7 /* Post View */ = {
+			isa = PBXGroup;
+			children = (
+				7E65383D2B83676F005DD8F7 /* PostView.xib */,
+				7E65383F2B83685E005DD8F7 /* PostView.swift */,
+			);
+			path = "Post View";
+			sourceTree = "<group>";
+		};
 		7EE47DE42B73E94200583612 = {
 			isa = PBXGroup;
 			children = (
@@ -69,10 +88,14 @@
 			children = (
 				7EE47DF02B73E94200583612 /* AppDelegate.swift */,
 				7EE47DF22B73E94200583612 /* SceneDelegate.swift */,
-				7EE47DF42B73E94200583612 /* PostViewController.swift */,
+				7EE47DF42B73E94200583612 /* PostListViewController.swift */,
 				7E9F27402B74DBEB00632854 /* Networking.swift */,
 				7E288A1D2B7A4AC100C88119 /* PostInfo.swift */,
+				7E2E2F412B7E31C00068425B /* PostFetcher.swift */,
+				7E6538392B8363E7005DD8F7 /* PostDetails.swift */,
+				7E68DB3E2B7E6B0900BA9C4F /* PostTableCell.swift */,
 				7EE47DF62B73E94200583612 /* Main.storyboard */,
+				7E6538412B836B12005DD8F7 /* Post View */,
 				7EE47DF92B73E94300583612 /* Assets.xcassets */,
 				7EE47DFB2B73E94300583612 /* LaunchScreen.storyboard */,
 				7EE47DFE2B73E94300583612 /* Info.plist */,
@@ -147,6 +170,7 @@
 			files = (
 				7EE47E072B73F23B00583612 /* .gitignore in Resources */,
 				7EE47DFD2B73E94300583612 /* LaunchScreen.storyboard in Resources */,
+				7E65383E2B83676F005DD8F7 /* PostView.xib in Resources */,
 				7EE47DFA2B73E94300583612 /* Assets.xcassets in Resources */,
 				7EE47DF82B73E94200583612 /* Main.storyboard in Resources */,
 			);
@@ -159,10 +183,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E65383A2B8363E7005DD8F7 /* PostDetails.swift in Sources */,
 				7E288A1E2B7A4AC100C88119 /* PostInfo.swift in Sources */,
-				7EE47DF52B73E94200583612 /* PostViewController.swift in Sources */,
+				7E68DB3F2B7E6B0900BA9C4F /* PostTableCell.swift in Sources */,
+				7EE47DF52B73E94200583612 /* PostListViewController.swift in Sources */,
+				7E2E2F422B7E31C00068425B /* PostFetcher.swift in Sources */,
 				7EE47DF12B73E94200583612 /* AppDelegate.swift in Sources */,
 				7EE47DF32B73E94200583612 /* SceneDelegate.swift in Sources */,
+				7E6538402B83685E005DD8F7 /* PostView.swift in Sources */,
 				7E9F27412B74DBEB00632854 /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

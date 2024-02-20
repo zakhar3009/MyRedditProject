@@ -15,7 +15,7 @@ class PostInfo : Codable{
     let downs : Int
     let numComments : Int
     let createdUtc : Double
-    let preview : Preview
+    let preview : Preview?
     var isSaved = true
     
     var timePassed : String {

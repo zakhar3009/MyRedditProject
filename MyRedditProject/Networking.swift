@@ -8,24 +8,34 @@
 import Foundation
 
 
-public class NetworkingManager{
+public class Networking{
     
-    func createUrl(subreddit : String, limit : Int) -> URL?{
-        guard let startPath = URL(string: "https://www.reddit.com/r/\(subreddit)/top.json?") else {return nil}
-        return startPath.appending(queryItems: [URLQueryItem(name: "limit", value: "\(limit)")])
+    static let manager = Networking()
+    private init() {}
+    
+    private func createUrl(subreddit : String, limit : Int, after: String?) -> URL?{
+        guard let startPath = URL(string: "https://www.reddit.com/r/\(subreddit)/top.json") else {return nil}
+        return startPath
+            .appending(queryItems: [URLQueryItem(name: "limit", value: "\(limit)"),
+                                   URLQueryItem(name: "after", value: after)])
+        
     }
     
-    func getPost() async throws -> PostInfo{
-        guard let reqURL = createUrl(subreddit: "ios", limit: 1) else {
+    func getResponse(subreddit: String, limit: Int, after: String?) async throws -> Response{
+        guard let reqURL = createUrl(subreddit: subreddit, limit: limit, after: after) else {
             throw PostError.invalidURL
         }
+        //print(reqURL)
         let (data, response) = try await URLSession.shared.data(from: reqURL)
+        //print(String(data: data, encoding: .utf8))
         if let response = response as? HTTPURLResponse, response.statusCode != 200 {
             throw PostError.invalidResponse
         }
         do {
-            return try JSONDecoder().decode(Response.self, from: data).data.children[0].data
+            let response = try JSONDecoder().decode(Response.self, from: data)
+            return response
         } catch {
+            //print(String(data: data, encoding: .utf8)!)
             throw PostError.invalidData
         }
     }
@@ -39,6 +49,7 @@ struct Response : Codable{
 }
 
 struct PostData : Codable{
+    let after: String?
     let children : [PostChildren]
 }
 
@@ -48,9 +59,7 @@ struct PostChildren : Codable{
 }
 
 
-
 struct Preview : Codable{
-    let enabled : Bool
     let images : [Image]
 }
 struct Image : Codable{
