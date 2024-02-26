@@ -81,9 +81,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post List" id="Gi0-Uh-78K">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="bookmark.fill" catalog="system" id="pT2-rS-mly">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bookmark" catalog="system" id="pT2-rS-mly">
                             <connections>
-                                <action selector="onlySavedBookmarkPressed:" destination="D5y-MR-1w0" id="obK-YT-7K3"/>
+                                <action selector="onlySavedBookmarkPressed:" destination="D5y-MR-1w0" id="4fZ-Qh-gfg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -134,7 +134,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -17,23 +17,49 @@ class PostListViewController: UIViewController {
    
     @IBOutlet weak var navItem: UINavigationItem!
     
-    let postFetcher = PostFetcher(subbredit: "iOS", limit: 10)
-    var onlySavedMode = true
+    var headerView: UIView?
+    
+    var searchField: UITextField?
+    
+    var onlySavedMode = false
     
     struct Const{
         static let cellIdentifaer = "post_table_cell"
         static let goToDetailsSegueID = "go_to_details"
     }
     
+    
+    func configSearchItem(){
+        headerView = UIView(frame: CGRect(x: 0, y: 0, width: postsTableView.frame.width, height: 44))
+        headerView!.layer.borderColor = UIColor.lightGray.cgColor
+        headerView!.layer.borderWidth = 0.5
+        
+        searchField = UITextField(frame: CGRect(x: 0, y: 0, width: postsTableView.frame.width, height: 44))
+        searchField!.delegate = self
+        searchField!.placeholder = "Search saved posts"
+        searchField!.textAlignment = .center
+        headerView!.addSubview(searchField!)
+    }
+    
     @IBAction func onlySavedBookmarkPressed(_ sender: Any) {
         onlySavedMode.toggle()
         let image = UIImage(systemName: onlySavedMode ? "bookmark.fill" : "bookmark")
         onlySavedButton.image = image
+        if onlySavedMode{
+            DataManager.manager.onlySavedMode(onlySavedMode)
+            postsTableView.tableHeaderView = headerView
+            postsTableView.reloadData()
+        } else {
+            postsTableView.tableHeaderView = nil
+            DataManager.manager.onlySavedMode(false)
+            postsTableView.reloadData()
+        }
+        
     }
     
-    
-    
-    var posts = [PostInfo]()
+    override func viewWillAppear(_ animated: Bool) {
+        postsTableView.reloadData()
+    }
     
     private var lastSelectedPost: PostInfo?
    
@@ -41,11 +67,11 @@ class PostListViewController: UIViewController {
         super.viewDidLoad()
         navItem.title = "iOS"
         Task{
-            if let data = await postFetcher.getPosts(){
-                posts += data
-            }
+            await DataManager.manager.uploadPostsFromDevice()
+            await DataManager.manager.downloadPostsFromNetwork()
             postsTableView.reloadData()
         }
+        configSearchItem()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,7 +90,7 @@ class PostListViewController: UIViewController {
 
 extension PostListViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        posts.count
+        DataManager.manager.getCurrentPosts().count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,8 +99,8 @@ extension PostListViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.cellIdentifaer, for: indexPath) as! PostTableCell
-        cell.postView.currentPost = posts[indexPath.row]
-        cell.postView.configure()
+        cell.configure(post: DataManager.manager.getCurrentPosts()[indexPath.row])
+        cell.setDelegate(self)
         return cell
     }
 }
@@ -82,18 +108,15 @@ extension PostListViewController : UITableViewDataSource{
 extension PostListViewController : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.lastSelectedPost = self.posts[indexPath.row]
+        self.lastSelectedPost = DataManager.manager.getCurrentPosts()[indexPath.row]
         self.performSegue(withIdentifier: Const.goToDetailsSegueID, sender: nil)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentLeft = scrollView.contentSize.height - scrollView.frame.size.height - scrollView.contentOffset.y
-        if contentLeft < 500 {
+        if contentLeft < 450 && !onlySavedMode{
             Task{
-                //print(postFetcher.after)
-                if let data = await postFetcher.getPosts(){
-                    posts += data
-                }
+                await DataManager.manager.downloadPostsFromNetwork()
                 postsTableView.reloadData()
             }
         }
@@ -101,4 +124,27 @@ extension PostListViewController : UITableViewDelegate{
     }
 }
 
+extension PostListViewController: PostViewDelegate {
+    
+    func didTapShare(_ post: PostInfo) {
+        let items: [Any] = [post.url!]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    
+}
 
+extension PostListViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        DataManager.manager.filterByTitle(text: text)
+        postsTableView.reloadData()
+    }
+    
+    
+}

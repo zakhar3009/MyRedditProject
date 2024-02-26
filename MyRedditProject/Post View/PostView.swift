@@ -8,9 +8,15 @@
 import Foundation
 import UIKit
 
+protocol PostViewDelegate: AnyObject {
+    func didTapShare(_ post: PostInfo)
+}
+
 class PostView: UIView{
     
     var currentPost: PostInfo?
+    
+    @IBOutlet weak var bookmarkButton: UIButton!
     
     @IBOutlet private var contentView: UIView!
     
@@ -25,6 +31,9 @@ class PostView: UIView{
     @IBOutlet private weak var commentsLabel: UILabel!
     
     @IBOutlet private weak var shareButton: UIButton!
+    
+    weak var delegate: PostViewDelegate?
+    
     
     
     override init(frame: CGRect) {
@@ -44,12 +53,19 @@ class PostView: UIView{
     }
     
     
+    @IBAction func sharePressed(_ sender: Any) {
+        guard let currentPost = currentPost else { return }
+        delegate?.didTapShare(currentPost)
+    }
+    
     @IBAction func bookmarkPressed(_ sender: UIButton) {
-        guard let currentPost else {return}
-        currentPost.isSaved.toggle()
-        let image = UIImage(systemName: currentPost.isSaved ?
+        guard var currentPost else {return}
+        currentPost.toggleSave()
+        self.currentPost?.toggleSave()
+        DataManager.manager.savePost(post: currentPost)
+        let image = UIImage(systemName: currentPost.getIsSaved ?
                             "bookmark.fill" :  "bookmark")
-        sender.setImage(image, for: .normal)
+        bookmarkButton.setImage(image, for: .normal)
     }
     
     func configure(){
@@ -60,17 +76,28 @@ class PostView: UIView{
         shareButton.titleLabel?.adjustsFontSizeToFitWidth = true
         shareButton.titleLabel?.minimumScaleFactor = 0.5
         guard let currentPost else { return }
-        userInfo.text = "\(currentPost.authorFullName) • \(currentPost.timePassed) • \(currentPost.domain)"
+        var authorFullName: String
+        if let name = currentPost.authorFullName {
+            authorFullName = name
+        } else {
+            authorFullName = "\\undefined\\"
+        }
+        userInfo.text = "\(authorFullName) • \(currentPost.timePassed) • \(currentPost.domain)"
         postTitle.text = currentPost.title.prefix(1).uppercased() + currentPost.title.dropFirst()
         ratingLabel.text = "\(currentPost.ups + currentPost.downs)"
         commentsLabel.text = "\(currentPost.numComments)"
+        postImage.contentMode = .scaleAspectFit
+        
         if let preview = currentPost.preview{
             let imageUrl = preview.images[0].source.url.replacingOccurrences(of: "&amp;", with: "&")
-            //print(imageUrl)
             postImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: nil, options: .scaleDownLargeImages)
         } else {
             postImage.image = UIImage(named: "Placeholder")
-            postImage.contentMode = .scaleAspectFill
+        }
+        if currentPost.getIsSaved {
+            bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        }else {
+            bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
     }
     

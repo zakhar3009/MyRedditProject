@@ -11,7 +11,16 @@ import UIKit
 
 class PostTableCell : UITableViewCell{
     
-    @IBOutlet weak var postView: PostView!
+    @IBOutlet private weak var postView: PostView!
+    
+    func configure(post: PostInfo){
+        postView.currentPost = post
+        postView.configure()
+    }
+    
+    func setDelegate(_ vc: PostListViewController) {
+        postView.delegate = vc
+    }
     
 }
 

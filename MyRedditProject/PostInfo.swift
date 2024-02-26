@@ -7,8 +7,9 @@
 
 import Foundation
 
-class PostInfo : Codable{
-    let authorFullName : String
+struct PostInfo : Codable{
+    
+    let authorFullName : String?
     let domain : String
     let title : String
     let ups : Int
@@ -16,7 +17,17 @@ class PostInfo : Codable{
     let numComments : Int
     let createdUtc : Double
     let preview : Preview?
-    var isSaved = true
+    let permalink: String
+    let id: String
+    var isSaved = false
+    
+    var getIsSaved: Bool{
+        return isSaved
+    }
+    
+    var url: URL?{
+        return URL(string: "https://www.reddit.com\(permalink)")
+    }
     
     var timePassed : String {
         let currentUTC = Double(Date().timeIntervalSince1970)
@@ -25,6 +36,10 @@ class PostInfo : Codable{
         else if (currentUTC - createdUtc)/86400 < 1 { return "\(Int((currentUTC - createdUtc)/3600))h" }
         else if (currentUTC - createdUtc)/(86400 * 365) < 1 { return "\(Int((currentUTC - createdUtc)/86400))d" }
         else { return "\(Int((currentUTC - createdUtc)/(86400 * 365)))y" }
+    }
+    
+    mutating func toggleSave(){
+        isSaved.toggle()
     }
     
     enum CodingKeys : String, CodingKey{
@@ -36,6 +51,8 @@ class PostInfo : Codable{
         case downs
         case preview
         case numComments = "num_comments"
+        case permalink
+        case id
     }
     
 }
