@@ -55,54 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "969D64F2-297D-4D84-BB40-DC4334522DD3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyRedditProject/Post View/PostView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "bookmarkPressed(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "969D64F2-297D-4D84-BB40-DC4334522DD3 - 490f7a9145d5d25"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyRedditProject.PostView.bookmarkPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "MyRedditProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/Post%20View/PostView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "969D64F2-297D-4D84-BB40-DC4334522DD3 - 490f7a9145d5d25"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MyRedditProject.PostView.bookmarkPressed(__C.UIButton) -&gt; ()"
-                  moduleName = "MyRedditProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/Post%20View/PostView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "812">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F6C2E3F0-0A5B-4F37-BAB6-0404355BD34D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -161,22 +113,6 @@
                   offsetFromSymbolStart = "88">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "074B1BEA-C76B-4806-9BE6-4C3DBAB68C70"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyRedditProject/Post View/PostView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "bookmarkPressed(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -267,28 +203,28 @@
             filePath = "MyRedditProject/PostListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7D9051CE-A7EF-4EAD-A9DC-FFF960A67283 - b509320ab05e0a70"
+                  uuid = "7D9051CE-A7EF-4EAD-A9DC-FFF960A67283 - 7f35286af46fedf9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MyRedditProject.PostListViewController.textFieldShouldReturn(__C.UITextField) -&gt; Swift.Bool"
+                  symbolName = "MyRedditProject.PostListViewController.textFieldDidChangeSelection(__C.UITextField) -&gt; ()"
                   moduleName = "MyRedditProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/PostListViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "7D9051CE-A7EF-4EAD-A9DC-FFF960A67283 - b509320ab05e0a70"
+                  uuid = "7D9051CE-A7EF-4EAD-A9DC-FFF960A67283 - b509320ab05e0863"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -298,8 +234,8 @@
                   urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/PostListViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
                   offsetFromSymbolStart = "36">
                </Location>
             </Locations>
@@ -308,31 +244,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3235B602-238D-4DDB-B10F-B6193A2253F2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyRedditProject/PostListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "onlySavedBookmarkPressed(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7B798C2C-C80B-4E00-B3D6-FDD97EF4206F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyRedditProject/PostListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>

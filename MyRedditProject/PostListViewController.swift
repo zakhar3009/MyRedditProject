@@ -17,9 +17,9 @@ class PostListViewController: UIViewController {
    
     @IBOutlet weak var navItem: UINavigationItem!
     
-    var headerView: UIView?
+    var headerView: UIView!
     
-    var searchField: UITextField?
+    var searchField: UITextField!
     
     var onlySavedMode = false
     
@@ -30,16 +30,32 @@ class PostListViewController: UIViewController {
     
     
     func configSearchItem(){
-        headerView = UIView(frame: CGRect(x: 0, y: 0, width: postsTableView.frame.width, height: 44))
-        headerView!.layer.borderColor = UIColor.lightGray.cgColor
-        headerView!.layer.borderWidth = 0.5
-        
-        searchField = UITextField(frame: CGRect(x: 0, y: 0, width: postsTableView.frame.width, height: 44))
-        searchField!.delegate = self
-        searchField!.placeholder = "Search saved posts"
-        searchField!.textAlignment = .center
-        headerView!.addSubview(searchField!)
+        headerView = UIView(frame: .init(
+            x: 0,
+            y: 0,
+            width: view.frame.width,
+            height: 44
+        ))
+        headerView.layer.borderColor = UIColor.lightGray.cgColor
+        headerView.layer.borderWidth = 0.5
+        searchField = UITextField()
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        searchField.textAlignment = .center
+        headerView.addSubview(searchField)
+        layoutSearchField()
+        searchField.delegate = self
+        searchField.placeholder = "Search saved posts"
     }
+    
+    func layoutSearchField() {
+        NSLayoutConstraint.activate([
+            searchField.topAnchor.constraint(equalTo: headerView.topAnchor),
+            searchField.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+            searchField.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
+            searchField.trailingAnchor.constraint(equalTo: headerView.trailingAnchor)
+        ])
+    }
+
     
     @IBAction func onlySavedBookmarkPressed(_ sender: Any) {
         onlySavedMode.toggle()
