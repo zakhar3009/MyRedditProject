@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E0AE6A72B869EC100372FD4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0AE6A62B869EC100372FD4 /* DataManager.swift */; };
+		7E2324192B8F9205004EBA7C /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2324182B8F9205004EBA7C /* BookmarkView.swift */; };
 		7E288A1E2B7A4AC100C88119 /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E288A1D2B7A4AC100C88119 /* PostInfo.swift */; };
 		7E2E2F422B7E31C00068425B /* PostFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E2F412B7E31C00068425B /* PostFetcher.swift */; };
 		7E38C2D32B73F89C00951752 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E38C2D22B73F89C00951752 /* SDWebImage */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		7E0AE6A62B869EC100372FD4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		7E2324182B8F9205004EBA7C /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		7E288A1D2B7A4AC100C88119 /* PostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
 		7E2E2F412B7E31C00068425B /* PostFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFetcher.swift; sourceTree = "<group>"; };
 		7E6538392B8363E7005DD8F7 /* PostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetails.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				7EE47DF02B73E94200583612 /* AppDelegate.swift */,
 				7EE47DF22B73E94200583612 /* SceneDelegate.swift */,
 				7EE47DF42B73E94200583612 /* PostListViewController.swift */,
+				7E2324182B8F9205004EBA7C /* BookmarkView.swift */,
 				7E9F27402B74DBEB00632854 /* Networking.swift */,
 				7E288A1D2B7A4AC100C88119 /* PostInfo.swift */,
 				7E0AE6A62B869EC100372FD4 /* DataManager.swift */,
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E65383A2B8363E7005DD8F7 /* PostDetails.swift in Sources */,
+				7E2324192B8F9205004EBA7C /* BookmarkView.swift in Sources */,
 				7E288A1E2B7A4AC100C88119 /* PostInfo.swift in Sources */,
 				7E68DB3F2B7E6B0900BA9C4F /* PostTableCell.swift in Sources */,
 				7EE47DF52B73E94200583612 /* PostListViewController.swift in Sources */,

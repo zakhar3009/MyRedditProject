@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-protocol PostViewDelegate: AnyObject {
+protocol PostViewDelegate: AnyObject, UIViewController{
     func didTapShare(_ post: PostInfo)
+    func performSegue(_ selectedPost: PostInfo)
 }
 
 class PostView: UIView{
@@ -34,8 +35,6 @@ class PostView: UIView{
     
     weak var delegate: PostViewDelegate?
     
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -52,20 +51,51 @@ class PostView: UIView{
         addSubview(contentView)
     }
     
-    
     @IBAction func sharePressed(_ sender: Any) {
         guard let currentPost = currentPost else { return }
         delegate?.didTapShare(currentPost)
     }
     
-    @IBAction func bookmarkPressed(_ sender: UIButton) {
-        guard var currentPost else {return}
+    @objc
+    func savePost(){
+        guard var currentPost else { return }
         currentPost.toggleSave()
         self.currentPost?.toggleSave()
         DataManager.manager.savePost(post: currentPost)
         let image = UIImage(systemName: currentPost.getIsSaved ?
                             "bookmark.fill" :  "bookmark")
         bookmarkButton.setImage(image, for: .normal)
+    }
+    
+    @objc
+    func savePostWithDoubleTap(){
+        if let currentPost {
+            if !currentPost.isSaved { savePost() }
+        }
+        let bookmarkViewWidth = self.postImage.frame.width * 0.2
+        let bookmarkViewHeight = self.postImage.frame.height * 0.45
+        let bookmarkView = Bookmark(frame: CGRect(
+            x: postImage.frame.midX - bookmarkViewWidth/2,
+            y: postImage.frame.height/2 - bookmarkViewHeight/2,
+            width: bookmarkViewWidth,
+            height: bookmarkViewHeight)
+        )
+        bookmarkView.isHidden = true
+        bookmarkView.translatesAutoresizingMaskIntoConstraints = false
+        postImage.addSubview(bookmarkView)
+        UIView.transition(with: postImage,
+                          duration: 1,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            bookmarkView.isHidden = false
+        }, completion: { _ in
+            UIView.transition(with: self.postImage,
+                              duration: 1,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                bookmarkView.isHidden = true
+            })
+        })
     }
     
     func configure(){
@@ -96,10 +126,31 @@ class PostView: UIView{
         }
         if currentPost.getIsSaved {
             bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-        }else {
+        } else {
             bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
+        postImage.isUserInteractionEnabled = true
+        let singleTapRecongizer = UITapGestureRecognizer(target: self, action: #selector(performSegue))
+        singleTapRecongizer.numberOfTapsRequired = 1
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(savePostWithDoubleTap))
+        doubleTapRecognizer.numberOfTapsRequired = 2
+        self.addGestureRecognizer(singleTapRecongizer)
+        self.postImage.addGestureRecognizer(doubleTapRecognizer)
+        singleTapRecongizer.require(toFail: doubleTapRecognizer)
+        bookmarkButton.addTarget(self, action: #selector(savePost), for: .touchUpInside)
     }
     
+    @objc
+    func performSegue(){
+        guard let currentPost else { return }
+        delegate?.performSegue(currentPost)
+    }
+    
+}
+
+extension PostView: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
+    }
     
 }

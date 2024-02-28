@@ -23,11 +23,12 @@ class PostListViewController: UIViewController {
     
     var onlySavedMode = false
     
-    struct Const{
+    private var lastSelectedPost: PostInfo?
+    
+    enum Const{
         static let cellIdentifaer = "post_table_cell"
         static let goToDetailsSegueID = "go_to_details"
     }
-    
     
     func configSearchItem(){
         headerView = UIView(frame: .init(
@@ -77,7 +78,7 @@ class PostListViewController: UIViewController {
         postsTableView.reloadData()
     }
     
-    private var lastSelectedPost: PostInfo?
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,16 +89,15 @@ class PostListViewController: UIViewController {
             postsTableView.reloadData()
         }
         configSearchItem()
+        
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier{
         case Const.goToDetailsSegueID:
             let detailsVC = segue.destination as! PostDetails
-            DispatchQueue.main.async {
-                guard let selectedPost = self.lastSelectedPost else { return }
-                detailsVC.configure(selectedPost: selectedPost)
-            }
+            guard let selectedPost = self.lastSelectedPost else { return }
+            detailsVC.selectedPost = selectedPost
         default: break
         }
     }
@@ -123,11 +123,6 @@ extension PostListViewController : UITableViewDataSource{
 
 extension PostListViewController : UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.lastSelectedPost = DataManager.manager.getCurrentPosts()[indexPath.row]
-        self.performSegue(withIdentifier: Const.goToDetailsSegueID, sender: nil)
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentLeft = scrollView.contentSize.height - scrollView.frame.size.height - scrollView.contentOffset.y
         if contentLeft < 450 && !onlySavedMode{
@@ -136,18 +131,21 @@ extension PostListViewController : UITableViewDelegate{
                 postsTableView.reloadData()
             }
         }
-        
     }
 }
 
 extension PostListViewController: PostViewDelegate {
+    
+    func performSegue(_ selectedPost: PostInfo) {
+        self.lastSelectedPost = selectedPost
+        self.performSegue(withIdentifier: Const.goToDetailsSegueID, sender: nil)
+    }
     
     func didTapShare(_ post: PostInfo) {
         let items: [Any] = [post.url!]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }
-    
 }
 
 extension PostListViewController: UITextFieldDelegate{
@@ -161,6 +159,5 @@ extension PostListViewController: UITextFieldDelegate{
         DataManager.manager.filterByTitle(text: text)
         postsTableView.reloadData()
     }
-    
     
 }

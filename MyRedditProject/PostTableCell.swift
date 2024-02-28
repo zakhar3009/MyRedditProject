@@ -21,6 +21,7 @@ class PostTableCell : UITableViewCell{
     func setDelegate(_ vc: PostListViewController) {
         postView.delegate = vc
     }
-    
 }
+
+
 

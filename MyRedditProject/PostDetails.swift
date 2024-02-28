@@ -8,23 +8,24 @@
 import Foundation
 import UIKit
 
-class PostDetails : UIViewController{
+class PostDetails : UIViewController {
     
     @IBOutlet weak var postView: PostView!
     
     var selectedPost: PostInfo?
     
-    func configure(selectedPost: PostInfo){
-        self.selectedPost = selectedPost
+    override func viewDidLoad() {
+        postView.isUserInteractionEnabled = true
         postView.currentPost = selectedPost
         postView.configure()
         postView.delegate = self
     }
     
-    
 }
 
-extension PostDetails: PostViewDelegate{
+extension PostDetails: PostViewDelegate {
+    func performSegue(_ selectedPost: PostInfo) {
+    }
     
     func didTapShare(_ post: PostInfo) {
         let items: [Any] = [post.url!]
