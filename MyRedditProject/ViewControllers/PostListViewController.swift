@@ -15,11 +15,11 @@ class PostListViewController: UIViewController {
     @IBOutlet private weak var onlySavedButton: UIBarButtonItem!
     
    
-    @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet private weak var navItem: UINavigationItem!
     
-    var headerView: UIView!
+    private var headerView: UIView!
     
-    var searchField: UITextField!
+    private var searchField: UITextField!
     
     var onlySavedMode = false
     
@@ -57,7 +57,6 @@ class PostListViewController: UIViewController {
         ])
     }
 
-    
     @IBAction func onlySavedBookmarkPressed(_ sender: Any) {
         onlySavedMode.toggle()
         let image = UIImage(systemName: onlySavedMode ? "bookmark.fill" : "bookmark")
@@ -78,8 +77,6 @@ class PostListViewController: UIViewController {
         postsTableView.reloadData()
     }
     
-    
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         navItem.title = "iOS"
@@ -121,7 +118,7 @@ extension PostListViewController : UITableViewDataSource{
     }
 }
 
-extension PostListViewController : UITableViewDelegate{
+extension PostListViewController : UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentLeft = scrollView.contentSize.height - scrollView.frame.size.height - scrollView.contentOffset.y
@@ -148,7 +145,7 @@ extension PostListViewController: PostViewDelegate {
     }
 }
 
-extension PostListViewController: UITextFieldDelegate{
+extension PostListViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

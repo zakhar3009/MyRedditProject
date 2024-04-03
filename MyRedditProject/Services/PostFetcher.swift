@@ -23,7 +23,7 @@ class PostFetcher{
             let response = try await Networking.manager.getResponse(subreddit: subbredit, limit: limit, after: after)
             self.after = response.data.after
             return response.data.children.map{ $0.data }
-        }catch PostError.invalidURL {
+        } catch PostError.invalidURL {
             print("Invalid url")
         } catch PostError.invalidResponse {
             print("Invalid response")

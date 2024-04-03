@@ -17,7 +17,7 @@ class PostView: UIView{
     
     var currentPost: PostInfo?
     
-    @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet private weak var bookmarkButton: UIButton!
     
     @IBOutlet private var contentView: UIView!
     
@@ -61,7 +61,7 @@ class PostView: UIView{
         guard var currentPost else { return }
         currentPost.toggleSave()
         self.currentPost?.toggleSave()
-        DataManager.manager.savePost(post: currentPost)
+        DataManager.manager.savePostIfNeeded(post: currentPost)
         let image = UIImage(systemName: currentPost.getIsSaved ?
                             "bookmark.fill" :  "bookmark")
         bookmarkButton.setImage(image, for: .normal)

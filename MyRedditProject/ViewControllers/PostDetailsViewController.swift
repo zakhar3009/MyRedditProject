@@ -10,7 +10,7 @@ import UIKit
 
 class PostDetails : UIViewController {
     
-    @IBOutlet weak var postView: PostView!
+    @IBOutlet private weak var postView: PostView!
     
     var selectedPost: PostInfo?
     

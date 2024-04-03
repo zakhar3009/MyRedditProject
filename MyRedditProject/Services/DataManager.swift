@@ -47,7 +47,7 @@ class DataManager{
         }
     }
     
-    func savePost(post: PostInfo){
+    func savePostIfNeeded(post: PostInfo){
         for i in 0..<currentPosts.count{
             if currentPosts[i].id == post.id {
                 currentPosts[i].toggleSave()

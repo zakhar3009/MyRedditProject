@@ -8,7 +8,7 @@
 import Foundation
 
 
-public class Networking{
+public class Networking {
     
     static let manager = Networking()
     private init() {}
@@ -25,13 +25,14 @@ public class Networking{
         guard let reqURL = createUrl(subreddit: subreddit, limit: limit, after: after) else {
             throw PostError.invalidURL
         }
-        //print(reqURL)
+        print(reqURL)
         let (data, response) = try await URLSession.shared.data(from: reqURL)
         //print(String(data: data, encoding: .utf8))
         if let response = response as? HTTPURLResponse, response.statusCode != 200 {
             throw PostError.invalidResponse
         }
         do {
+            //print(String(data: data, encoding: .utf8)!)
             let response = try JSONDecoder().decode(Response.self, from: data)
             return response
         } catch {
@@ -43,37 +44,5 @@ public class Networking{
 
 
 
-struct Response : Codable{
-    let kind : String
-    let data : PostData
-}
 
-struct PostData : Codable{
-    let after: String?
-    let children : [PostChildren]
-}
-
-struct PostChildren : Codable{
-    let kind : String
-    let data : PostInfo
-}
-
-
-struct Preview : Codable{
-    let images : [Image]
-}
-struct Image : Codable{
-    let source : Source
-}
-
-struct Source : Codable{
-    let url : String
-}
-
-
-enum PostError : Error{
-    case invalidURL
-    case invalidResponse
-    case invalidData
-}
 
