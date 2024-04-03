@@ -8,46 +8,47 @@
 import SwiftUI
 
 struct CommentListView: View {
-    
+    private let completion: (AnyView) -> Void
     private let fetcher: CommentFetcher
     private let subbredit: String
-    private let postID: String
+    private let post: PostInfo
     private let limit: Int
     @State var comments: [CommentInfo] = []
     
-    init(subbredit: String, postID: String, limit: Int) {
+    init(subbredit: String, post: PostInfo, limit: Int, completion: @escaping (AnyView) -> Void) {
         self.subbredit = subbredit
-        self.postID = postID
+        self.post = post
         self.limit = limit
-        self.fetcher = CommentFetcher(subbredit: subbredit, postID: postID, limit: limit)
+        self.fetcher = CommentFetcher(subbredit: subbredit, postID: post.id, limit: limit)
+        self.completion = completion
     }
     
+    
     var body: some View {
-        NavigationStack {
-            ScrollView{
-                LazyVStack(spacing: 0){
-                    ForEach(Array(comments.enumerated()), id: \.element.id){ index, comment in
-                        NavigationLink(value: comment) {
-                            CommentView(comment: comment)
+        ScrollView{
+            LazyVStack(spacing: 0){
+                PostDetailsView(selectedPost: post)
+                    .frame(height: 450)
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 15)
+                ForEach(Array(comments.enumerated()), id: \.element.id){ index, comment in
+                        CommentView(comment: comment)
+                        .onTapGesture {
+                            completion(AnyView(CommentDetailsView(comment: comment)))
                         }
-                        .onAppear {
-                            Task{
-                                if(self.fetcher.getMoreCommentsCount() > 0 && index >= comments.count - 3){
-                                    if let moreComments = await fetcher.getMoreComments(){
-                                        comments += moreComments
-                                        self.comments = comments
-                                    }
+                    .onAppear {
+                        Task{
+                            if(self.fetcher.getMoreCommentsCount() > 0 && index >= comments.count - 3){
+                                if let moreComments = await fetcher.getMoreComments(){
+                                    comments += moreComments
+                                    self.comments = comments
                                 }
                             }
                         }
-                        Divider()
-                            .frame(height: 1.5)
-                            .background(Color("BorderColor"))
                     }
-                }
-                .navigationTitle("Comments")
-                .navigationDestination(for: CommentInfo.self) { comment in
-                    CommentDetailsView(comment: comment)
+                    Divider()
+                        .frame(height: 1.5)
+                        .background(Color("BorderColor"))
                 }
             }
         }

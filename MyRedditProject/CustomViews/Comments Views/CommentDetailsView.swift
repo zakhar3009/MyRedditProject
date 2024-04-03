@@ -25,6 +25,7 @@ struct CommentDetailsView: View {
                         .background(Color("ShareButtonColor"))
                         .cornerRadius(15)
                 }
+                
             }
         }
         else {

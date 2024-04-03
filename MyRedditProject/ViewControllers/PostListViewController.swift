@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SwiftUI
 
 class PostListViewController: UIViewController {
     
@@ -27,7 +28,6 @@ class PostListViewController: UIViewController {
     
     enum Const{
         static let cellIdentifaer = "post_table_cell"
-        static let goToDetailsSegueID = "go_to_details"
     }
     
     func configSearchItem(){
@@ -88,16 +88,7 @@ class PostListViewController: UIViewController {
         configSearchItem()
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier{
-        case Const.goToDetailsSegueID:
-            let detailsVC = segue.destination as! PostDetails
-            guard let selectedPost = self.lastSelectedPost else { return }
-            detailsVC.selectedPost = selectedPost
-        default: break
-        }
-    }
+
 
 }
 
@@ -135,7 +126,15 @@ extension PostListViewController: PostViewDelegate {
     
     func performSegue(_ selectedPost: PostInfo) {
         self.lastSelectedPost = selectedPost
-        self.performSegue(withIdentifier: Const.goToDetailsSegueID, sender: nil)
+        let completionClosure: (AnyView) -> Void = { view in
+            let swiftUIController = UIHostingController(rootView: view)
+            self.navigationController?.pushViewController(swiftUIController, animated: true)
+        }
+        let swiftUIController = UIHostingController(rootView: CommentListView(subbredit: DataManager.manager.subbredit,
+                                                                              post: self.lastSelectedPost!,
+                                                                              limit: DataManager.manager.limit,
+                                                                              completion: completionClosure))
+        self.navigationController?.pushViewController(swiftUIController, animated: true)
     }
     
     func didTapShare(_ post: PostInfo) {
@@ -158,3 +157,5 @@ extension PostListViewController: UITextFieldDelegate {
     }
     
 }
+
+

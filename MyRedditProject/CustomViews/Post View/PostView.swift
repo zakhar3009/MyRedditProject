@@ -13,7 +13,7 @@ protocol PostViewDelegate: AnyObject, UIViewController{
     func performSegue(_ selectedPost: PostInfo)
 }
 
-class PostView: UIView{
+class PostView: UIView {
     
     var currentPost: PostInfo?
     
@@ -35,10 +35,13 @@ class PostView: UIView{
     
     weak var delegate: PostViewDelegate?
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, currentPost: PostInfo) {
+        self.currentPost = currentPost
         super.init(frame: frame)
         commonInit()
     }
+    
+    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
