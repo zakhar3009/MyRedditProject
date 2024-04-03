@@ -7,9 +7,17 @@
 
 import Foundation
 
-class DataManager{
+class DataManager {
     
-    private init() {}
+    let subbredit = "iOS"
+    
+    let limit = 10
+    
+    private let fetcher: PostFetcher
+    
+    private init() {
+        self.fetcher = PostFetcher(subbredit: subbredit, limit: limit)
+    }
     
     private var savedPosts = [PostInfo]()
     
@@ -19,7 +27,7 @@ class DataManager{
     
     static let manager = DataManager()
     
-    let fetcher = PostFetcher(subbredit: "iOS", limit: 10)
+    
     
     private var currentPosts: [PostInfo] = []
     private var networkPosts: [PostInfo] = []

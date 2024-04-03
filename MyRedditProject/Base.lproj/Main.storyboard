@@ -107,24 +107,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSI-Kr-Sbl" customClass="PostView" customModule="MyRedditProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="103" width="430" height="450"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydp-dU-e9W">
+                                <rect key="frame" x="0.0" y="103" width="430" height="746"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-2J-gUJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="829"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oLJ-81-bvy">
+                                                <rect key="frame" x="0.0" y="0.0" width="430" height="829"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSI-Kr-Sbl" customClass="PostView" customModule="MyRedditProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="430" height="450"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="450" id="Fcv-bf-tsL"/>
+                                                            <constraint firstAttribute="height" constant="450" id="UXp-Z3-cLK"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjS-yy-xtv">
+                                                        <rect key="frame" x="0.0" y="450" width="430" height="379"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="379" id="W5W-KF-bh0"/>
+                                                        </constraints>
+                                                    </containerView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="oLJ-81-bvy" firstAttribute="leading" secondItem="hE2-2J-gUJ" secondAttribute="leading" id="0Od-N7-lAa"/>
+                                            <constraint firstAttribute="trailing" secondItem="oLJ-81-bvy" secondAttribute="trailing" id="JHK-iA-vnz"/>
+                                            <constraint firstItem="oLJ-81-bvy" firstAttribute="top" secondItem="hE2-2J-gUJ" secondAttribute="top" id="a48-aD-Qwi"/>
+                                            <constraint firstAttribute="bottom" secondItem="oLJ-81-bvy" secondAttribute="bottom" id="js9-og-D50"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="hUv-bE-Nsm"/>
+                                    <constraint firstItem="hE2-2J-gUJ" firstAttribute="top" secondItem="ydp-dU-e9W" secondAttribute="top" id="Nb8-fA-bRE"/>
+                                    <constraint firstItem="hE2-2J-gUJ" firstAttribute="width" secondItem="ydp-dU-e9W" secondAttribute="width" id="Uqm-tU-rKt"/>
+                                    <constraint firstAttribute="bottom" secondItem="hE2-2J-gUJ" secondAttribute="bottom" id="mlj-1R-hu7"/>
+                                    <constraint firstItem="hE2-2J-gUJ" firstAttribute="leading" secondItem="ydp-dU-e9W" secondAttribute="leading" id="ueR-O2-2hP"/>
+                                    <constraint firstAttribute="trailing" secondItem="hE2-2J-gUJ" secondAttribute="trailing" id="yY2-vb-0ey"/>
                                 </constraints>
-                            </view>
+                                <viewLayoutGuide key="contentLayoutGuide" id="kXz-Gu-EN9"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="2yT-4x-D4x"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gn2-aE-q0R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nSI-Kr-Sbl" firstAttribute="top" secondItem="Gn2-aE-q0R" secondAttribute="top" id="B7N-nO-BGu"/>
-                            <constraint firstItem="Gn2-aE-q0R" firstAttribute="trailing" secondItem="nSI-Kr-Sbl" secondAttribute="trailing" id="aFj-Ux-odz"/>
-                            <constraint firstItem="nSI-Kr-Sbl" firstAttribute="leading" secondItem="Gn2-aE-q0R" secondAttribute="leading" id="gsw-NS-SJv"/>
+                            <constraint firstItem="ydp-dU-e9W" firstAttribute="trailing" secondItem="Gn2-aE-q0R" secondAttribute="trailing" id="fq1-eq-38B"/>
+                            <constraint firstItem="ydp-dU-e9W" firstAttribute="top" secondItem="Gn2-aE-q0R" secondAttribute="top" id="fuK-zk-idc"/>
+                            <constraint firstItem="Gn2-aE-q0R" firstAttribute="bottom" secondItem="ydp-dU-e9W" secondAttribute="bottom" id="th8-Wn-Iot"/>
+                            <constraint firstItem="ydp-dU-e9W" firstAttribute="leading" secondItem="Gn2-aE-q0R" secondAttribute="leading" id="xbL-fQ-IXV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ndg-55-rtx"/>
                     <connections>
+                        <outlet property="containerView" destination="HjS-yy-xtv" id="4u8-vF-Hcm"/>
                         <outlet property="postView" destination="nSI-Kr-Sbl" id="DUx-dJ-PuW"/>
                     </connections>
                 </viewController>

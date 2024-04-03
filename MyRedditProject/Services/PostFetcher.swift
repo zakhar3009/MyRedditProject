@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PostFetcher{
+class PostFetcher {
     let subbredit: String
     let limit: Int
     var after: String?
@@ -18,16 +18,15 @@ class PostFetcher{
     }
     
     func getPosts() async -> [PostInfo]?{
-        do{
-            //print(after)
-            let response = try await Networking.manager.getResponse(subreddit: subbredit, limit: limit, after: after)
+        do {
+            let response = try await Networking.manager.getPostResponse(subreddit: subbredit, limit: limit, after: after)
             self.after = response.data.after
             return response.data.children.map{ $0.data }
-        } catch PostError.invalidURL {
+        } catch NetworkingErrors.invalidURL {
             print("Invalid url")
-        } catch PostError.invalidResponse {
+        } catch NetworkingErrors.invalidResponse {
             print("Invalid response")
-        } catch PostError.invalidData {
+        } catch NetworkingErrors.invalidData {
             print("Invalid data")
         } catch {
             print("Other error")

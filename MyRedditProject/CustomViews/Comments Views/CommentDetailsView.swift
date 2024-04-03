@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct CommentDetailsView: View {
+    let comment: CommentInfo?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let link = comment?.link {
+            VStack{
+                CommentView(comment: comment)
+                    .padding(.bottom, 100)
+                
+                ShareLink(item: URL(string: "https://www.reddit.com\(link)")!) {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                        .font(.system(size: 25))
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                        .frame(width: UIScreen.main.bounds.width * 0.85, height: 60)
+                        .background(Color("ShareButtonColor"))
+                        .cornerRadius(15)
+                }
+            }
+        }
+        else {
+            CommentView(comment: nil)
+        }
     }
-}
-
-#Preview {
-    CommentDetailsView()
 }
