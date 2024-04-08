@@ -35,10 +35,14 @@ struct PostDetailsView: UIViewRepresentable {
     }
     
     class Coordinator: UIViewController, PostViewDelegate {
+        
         func didTapShare(_ post: PostInfo) {
             let items: [Any] = [post.url!]
             let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-            present(ac, animated: true)
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                windowScene.windows.first?.rootViewController?.present(ac, animated: true)
+            }
+            //UIApplication.shared.wind rootViewController?.present(ac, animated: true)
         }
         
         func performSegue(_ selectedPost: PostInfo) {

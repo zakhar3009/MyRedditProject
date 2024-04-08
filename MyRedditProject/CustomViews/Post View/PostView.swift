@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol PostViewDelegate: AnyObject, UIViewController{
+protocol PostViewDelegate: UIViewController {
     func didTapShare(_ post: PostInfo)
     func performSegue(_ selectedPost: PostInfo)
 }
@@ -40,8 +40,6 @@ class PostView: UIView {
         super.init(frame: frame)
         commonInit()
     }
-    
-    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

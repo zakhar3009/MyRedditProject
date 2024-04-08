@@ -193,5 +193,101 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBB5FFC5-B884-4108-9126-6F393E4073C8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditProject/CustomViews/PostDetailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "didTapShare(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BBB5FFC5-B884-4108-9126-6F393E4073C8 - a116a8ffa136069c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostDetailsView.Coordinator.didTapShare(MyRedditProject.PostInfo) -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/PostDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "BBB5FFC5-B884-4108-9126-6F393E4073C8 - a116a8ffa136069c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostDetailsView.Coordinator.didTapShare(MyRedditProject.PostInfo) -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/PostDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2B36F7A-65AE-4401-A423-E2C42AEF25ED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditProject/CustomViews/Comments Views/CommentListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "E2B36F7A-65AE-4401-A423-E2C42AEF25ED - 1da91f12b491e715"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int, MyRedditProject.CommentInfo) -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.background&lt;A where A1: SwiftUI.ShapeStyle&gt;(_: A1, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ForEach&lt;Swift.Array&lt;(offset: Swift.Int, element: MyRedditProject.CommentInfo)&gt;, Foundation.UUID, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.background&lt;A where A1: SwiftUI.ShapeStyle&gt;(_: A1, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.LazyVStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ForEach&lt;Swift.Array&lt;(offset: Swift.Int, element: MyRedditProject.CommentInfo)&gt;, Foundation.UUID, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.background&lt;A where A1: SwiftUI.ShapeStyle&gt;(_: A1, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt;&gt; in MyRedditProject.CommentListView.body.getter : some"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Comments%20Views/CommentListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "688">
+               </Location>
+               <Location
+                  uuid = "E2B36F7A-65AE-4401-A423-E2C42AEF25ED - 1da91f12b491e699"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int, MyRedditProject.CommentInfo) -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.background&lt;A where A1: SwiftUI.ShapeStyle&gt;(_: A1, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ForEach&lt;Swift.Array&lt;(offset: Swift.Int, element: MyRedditProject.CommentInfo)&gt;, Foundation.UUID, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.background&lt;A where A1: SwiftUI.ShapeStyle&gt;(_: A1, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.LazyVStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.ForEach&lt;Swift.Array&lt;(offset: Swift.Int, element: MyRedditProject.CommentInfo)&gt;, Foundation.UUID, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.background&lt;A where A1: SwiftUI.ShapeStyle&gt;(_: A1, ignoresSafeAreaEdges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt;&gt; in MyRedditProject.CommentListView.body.getter : some"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Comments%20Views/CommentListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "688">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

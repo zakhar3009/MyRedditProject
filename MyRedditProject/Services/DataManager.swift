@@ -35,9 +35,10 @@ class DataManager {
     func getCurrentPosts() -> [PostInfo]{
         currentPosts
     }
+    
     func downloadPostsFromNetwork() async {
         guard let posts = await fetcher.getPosts() else { return }
-        for var post in posts{
+        for var post in posts {
             if savedPosts.contains(where: { $0.id == post.id}){
                 post.toggleSave()
             }

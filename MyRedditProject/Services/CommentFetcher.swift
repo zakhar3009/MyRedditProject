@@ -41,10 +41,12 @@ class CommentFetcher {
     
     func getMoreComments() async -> [CommentInfo]?{
         do {
-            if moreCommentsIDs != nil && moreCommentsIDs!.count > 0 {
+            if moreCommentsIDs != nil {
                 let comments = try await Networking.manager.getMoreComments(postID: postID, commentsIDs: Array(moreCommentsIDs![moreCommentsIDs!.count >= limit ? 0..<limit : 0..<moreCommentsIDs!.count]))
-                for _ in 0..<comments.count{
-                    moreCommentsIDs?.removeFirst()
+                for _ in 0..<comments.count {
+                    if moreCommentsIDs?.first != nil {
+                        moreCommentsIDs?.removeFirst()
+                    }
                 }
                 return comments
             } else {

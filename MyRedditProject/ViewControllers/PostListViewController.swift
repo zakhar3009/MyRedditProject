@@ -89,10 +89,9 @@ class PostListViewController: UIViewController {
         
     }
 
-
 }
 
-extension PostListViewController : UITableViewDataSource{
+extension PostListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         DataManager.manager.getCurrentPosts().count
     }
@@ -113,7 +112,7 @@ extension PostListViewController : UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentLeft = scrollView.contentSize.height - scrollView.frame.size.height - scrollView.contentOffset.y
-        if contentLeft < 450 && !onlySavedMode{
+        if contentLeft < 450 && !onlySavedMode {
             Task{
                 await DataManager.manager.downloadPostsFromNetwork()
                 postsTableView.reloadData()
@@ -128,12 +127,14 @@ extension PostListViewController: PostViewDelegate {
         self.lastSelectedPost = selectedPost
         let completionClosure: (AnyView) -> Void = { view in
             let swiftUIController = UIHostingController(rootView: view)
+            swiftUIController.title = "Comment Details"
             self.navigationController?.pushViewController(swiftUIController, animated: true)
         }
         let swiftUIController = UIHostingController(rootView: CommentListView(subbredit: DataManager.manager.subbredit,
                                                                               post: self.lastSelectedPost!,
                                                                               limit: DataManager.manager.limit,
                                                                               completion: completionClosure))
+        swiftUIController.title = "Post details"
         self.navigationController?.pushViewController(swiftUIController, animated: true)
     }
     

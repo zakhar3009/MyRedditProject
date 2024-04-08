@@ -15,6 +15,7 @@ struct CommentListView: View {
     private let limit: Int
     @State var comments: [CommentInfo] = []
     
+    
     init(subbredit: String, post: PostInfo, limit: Int, completion: @escaping (AnyView) -> Void) {
         self.subbredit = subbredit
         self.post = post
@@ -25,7 +26,7 @@ struct CommentListView: View {
     
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             LazyVStack(spacing: 0){
                 PostDetailsView(selectedPost: post)
                     .frame(height: 450)
@@ -53,9 +54,11 @@ struct CommentListView: View {
             }
         }
         .onAppear {
-            Task{
-                if let comments = await fetcher.getComments(){
-                    self.comments += comments
+            if(self.comments.count == 0){
+                Task {
+                    if let comments = await fetcher.getComments(){
+                        self.comments = comments
+                    }
                 }
             }
         }
