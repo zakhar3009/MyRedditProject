@@ -238,6 +238,21 @@
                   endingLineNumber = "40"
                   offsetFromSymbolStart = "180">
                </Location>
+               <Location
+                  uuid = "BBB5FFC5-B884-4108-9126-6F393E4073C8 - a116a8ffa136069c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostDetailsView.Coordinator.didTapShare(MyRedditProject.PostInfo) -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/PostDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "200">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -287,6 +302,38 @@
                   offsetFromSymbolStart = "688">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "754345B2-A448-40F8-9A15-E6CAEC3CE191"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditProject/ViewControllers/PostListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61A87FC3-7CD6-40B9-9A47-C88ED6FFADE1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditProject/ViewControllers/PostListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

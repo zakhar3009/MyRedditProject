@@ -44,16 +44,22 @@ class DataManager {
             }
             networkPosts.append(post)
         }
-        currentPosts = networkPosts
+        
+        if networkPosts.isEmpty {
+            onlySavedMode(true)
+        }
+        else {
+            currentPosts = networkPosts
+        }
     }
     
     func onlySavedMode(_ isSavedMode: Bool){
         if isSavedMode {
             currentPosts = savedPosts
             //print(currentPosts)
-        } else {
+        } else if !networkPosts.isEmpty {
             currentPosts = networkPosts
-        }
+        } else { currentPosts = savedPosts }
     }
     
     func savePostIfNeeded(post: PostInfo){
@@ -82,14 +88,14 @@ class DataManager {
 
     
     func uploadPostsFromDevice() async {
-        do{
+        do {
             async let data = try Data(contentsOf: pathToDerictory.appendingPathComponent(fileName))
             let posts = try await JSONDecoder().decode([PostInfo].self, from: data)
             savedPosts.append(contentsOf: posts)
             for i in 0..<savedPosts.count{
                 savedPosts[i].toggleSave()
             }
-        }catch{
+        } catch{
             print("Uploading files is failed")
         }
     }
