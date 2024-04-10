@@ -307,32 +307,142 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "754345B2-A448-40F8-9A15-E6CAEC3CE191"
+            uuid = "9809D11B-71BF-4134-AE4B-C7B7F2AF3729"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyRedditProject/ViewControllers/PostListViewController.swift"
+            filePath = "MyRedditProject/CustomViews/Post View/PostView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "savePostWithDoubleTap()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9809D11B-71BF-4134-AE4B-C7B7F2AF3729 - 59f45033318c8bb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostView.savePostWithDoubleTap() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Post%20View/PostView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "9809D11B-71BF-4134-AE4B-C7B7F2AF3729 - 59f45033318c8bb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostView.savePostWithDoubleTap() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Post%20View/PostView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "9809D11B-71BF-4134-AE4B-C7B7F2AF3729 - 59f45033318c8bb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostView.savePostWithDoubleTap() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Post%20View/PostView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "9809D11B-71BF-4134-AE4B-C7B7F2AF3729 - 59f45033318c8bb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostView.savePostWithDoubleTap() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Post%20View/PostView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "288">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "61A87FC3-7CD6-40B9-9A47-C88ED6FFADE1"
+            uuid = "AE330FD5-E28E-42C7-A691-D3ED61FDEAD9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditProject/CustomViews/Post View/PostView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "performSegue()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AE330FD5-E28E-42C7-A691-D3ED61FDEAD9 - ea875bc88c6e99f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostView.performSegue() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Post%20View/PostView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "AE330FD5-E28E-42C7-A691-D3ED61FDEAD9 - ea875bc88c6e99f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditProject.PostView.performSegue() -&gt; ()"
+                  moduleName = "MyRedditProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zakharlitvinchuk/IOS/Homeworks/MyRedditProject/MyRedditProject/CustomViews/Post%20View/PostView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D26C13B0-D506-48FB-9B9A-90B21105C583"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyRedditProject/ViewControllers/PostListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

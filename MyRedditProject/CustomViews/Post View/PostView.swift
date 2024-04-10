@@ -83,20 +83,23 @@ class PostView: UIView {
         )
         bookmarkView.isHidden = true
         bookmarkView.translatesAutoresizingMaskIntoConstraints = false
+        bookmarkView.isUserInteractionEnabled = false
         postImage.addSubview(bookmarkView)
-        UIView.transition(with: postImage,
-                          duration: 1,
-                          options: .transitionCrossDissolve,
-                          animations: {
-            bookmarkView.isHidden = false
-        }, completion: { _ in
+        DispatchQueue.main.async {
             UIView.transition(with: self.postImage,
                               duration: 1,
-                              options: .transitionCrossDissolve,
+                              options: [.transitionCrossDissolve, .allowUserInteraction],
                               animations: {
-                bookmarkView.isHidden = true
+                bookmarkView.isHidden = false
+            }, completion: { _ in
+                UIView.transition(with: self.postImage,
+                                  duration: 1,
+                                  options: [.transitionCrossDissolve, .allowUserInteraction],
+                                  animations: {
+                    bookmarkView.isHidden = true
+                })
             })
-        })
+        }
     }
     
     func configure(){
@@ -149,9 +152,4 @@ class PostView: UIView {
     
 }
 
-extension PostView: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        true
-    }
-    
-}
+
