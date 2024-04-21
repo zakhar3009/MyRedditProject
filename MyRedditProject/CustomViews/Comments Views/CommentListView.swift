@@ -9,21 +9,17 @@ import SwiftUI
 
 struct CommentListView: View {
     private let completion: (AnyView) -> Void
-    private let fetcher: CommentFetcher
-    private let subbredit: String
     private let post: PostInfo
-    private let limit: Int
-    @State var comments: [CommentInfo] = []
+    @ObservedObject private var commentsManager: CommentsListManager
     
     
     init(subbredit: String, post: PostInfo, limit: Int, completion: @escaping (AnyView) -> Void) {
-        self.subbredit = subbredit
         self.post = post
-        self.limit = limit
-        self.fetcher = CommentFetcher(subbredit: subbredit, postID: post.id, limit: limit)
         self.completion = completion
+        self.commentsManager = CommentsListManager(subbredit: subbredit,
+                                                   limit: limit,
+                                                   currentPost: post)
     }
-    
     
     var body: some View {
         ScrollView {
@@ -32,33 +28,20 @@ struct CommentListView: View {
                     .frame(height: 450)
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 15)
-                ForEach(Array(comments.enumerated()), id: \.element.id){ index, comment in
-                        CommentView(comment: comment)
+                ForEach(Array(commentsManager.commentsForPost.enumerated()),
+                        id: \.element.id){ index, comment in
+                    CommentView(comment: comment)
                         .onTapGesture {
                             completion(AnyView(CommentDetailsView(comment: comment)))
                         }
-                    .onAppear {
-                        Task{
-                            if(self.fetcher.getMoreCommentsCount() > 0 && index >= comments.count - 3){
-                                if let moreComments = await fetcher.getMoreComments(){
-                                    comments += moreComments
-                                    self.comments = comments
-                                }
+                        .onAppear {
+                            if(commentsManager.getMoreCommentsCount() > 0 && index >= commentsManager.commentsForPost.count - 3){
+                                commentsManager.getMoreComments()
                             }
                         }
-                    }
                     Divider()
                         .frame(height: 1.5)
                         .background(Color("BorderColor"))
-                }
-            }
-        }
-        .onAppear {
-            if(self.comments.count == 0){
-                Task {
-                    if let comments = await fetcher.getComments(){
-                        self.comments = comments
-                    }
                 }
             }
         }

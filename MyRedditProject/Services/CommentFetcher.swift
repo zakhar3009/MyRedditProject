@@ -64,7 +64,7 @@ class CommentFetcher {
         return nil
     }
     
-    func getMoreCommentsCount() -> Int{
+    func getMoreCommentsCount() -> Int {
         guard let res = moreCommentsIDs?.count else { return 0 }
         return res
     }
